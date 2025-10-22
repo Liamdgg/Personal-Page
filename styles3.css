@@ -1,0 +1,270 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.video-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+  pointer-events: none; /* Prevent clicks on it */
+}
+
+.video-bg-container iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw; /* Extra width to fill edges */
+  height: 120vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.video-hidden {
+  opacity: 0;
+}
+
+.video-toggle {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.video-toggle:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0.85;
+}
+
+
+body.games-page::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('images/games-bg.jpeg');
+}
+
+body.books-page::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('images/background2.jpg');
+}
+
+body.drawing-page::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('images/gallery-bg.jpg');
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0; 
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: grey;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* ====== GAMES PAGE ====== */
+
+.games-container {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.games-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.games-header p {
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: overline;
+
+}
+
+.games-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.article-row {
+    display: flex;
+    align-items: center;
+
+    gap: 100px;
+
+}
+
+.article-col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 20px);
+    padding: 10px;
+    gap: 100px;
+
+    justify-content: center;
+    align-items: center
+    ;
+}
+
+.games-img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.article {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease, filter 0.3s ease;
+    z-index: 0;
+}
+
+.article:hover::before {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+.article-text {
+    text-align: center;
+    font-size: 60px;
+
+    text-shadow: 0px 0px 20px black;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+
+.article-text p {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.games-footer {
+    height: 200px;
+    text-align: center;
+}
+
