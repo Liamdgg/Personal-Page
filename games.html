@@ -11,16 +11,9 @@
 
 
 <div class="video-bg-container">
-  <iframe
-    id="bgVideo"
-    src="https://www.youtube.com/embed/fvUy9AIVJQs?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&playlist=fvUy9AIVJQs"
-    title="Background video"
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-    loading="lazy">
-  </iframe>
+  <video autoplay muted loop playsinline id="bgVideo">
+    <source src="videos/background.webm" type="video/webm">
+  </video>
 </div>
 
 
@@ -34,7 +27,6 @@
     <li><a href="about.html">About Me</a></li>
     <li><a href="hometown.html">My Hometown</a></li>
     <li><a href="schools.html">My Schools</a></li>
-    <li><a href="gallery.html">My Gallery</a></li>
     <li class="dropdown">
       <a href="#" class="dropbtn">Hobbies ▼</a>
       <ul class="dropdown-content">

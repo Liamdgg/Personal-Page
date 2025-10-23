@@ -1,3 +1,15 @@
+const bgImages = [
+  'images/haiphong1.jpg',
+  'images/haiphongport.jpg',
+  'images/cuisine.jpg'
+];
+
+bgImages.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
+
+
 const updateBackground = () => {
   const sections = document.querySelectorAll('section');
   sections.forEach(section => {

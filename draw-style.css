@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@100..900&display=swap');
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -9,58 +12,18 @@ html {
     font-family: "Inter", sans-serif;
 }
 
-
-.video-bg-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -2; 
-}
-
-.video-bg-container video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  object-fit: cover; 
-  pointer-events: none; 
-  filter: brightness(70%); 
-  transition: opacity 0.6s ease;
-}
-
-.video-hidden {
-  opacity: 0;
-}
-
-
-.video-toggle {
-  background: rgba(255,255,255,0.15);
-  border: none;
-  color: white;
-  padding: 8px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.video-toggle:hover {
-  background: rgba(255,255,255,0.3);
-}
-
-
 body {
     font-family: 'Segoe UI', sans-serif;
     color: white;
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+body.draw-page::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('images/gallery-bg.jpg');
 }
 
 
@@ -74,20 +37,6 @@ body::before {
     z-index: -2;
     opacity: 0.85;
 }
-
-
-body.games-page::before {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url('images/games-bg.jpeg');
-}
-
-body.books-page::before {
-    background-image:
-        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
-        url('images/books-bg.jpg');
-}
-
 
 .navbar {
     position: fixed;
@@ -162,118 +111,8 @@ body.books-page::before {
     color: #00bcd4;
 }
 
-/* ====== GAMES PAGE ====== */
 
-.games-container {
-    margin-top: 60px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.games-header {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    flex-grow: 1;
-    text-align: center;
-}
-
-.games-header p {
-    font-size: 50px;
-    font-weight: bold;
-    text-decoration: overline;
-    text-shadow: 0px 0px 20px black;
-
-}
-
-.games-content {
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
-}
-
-.article-row {
-    display: flex;
-    align-items: center;
-
-    gap: 100px;
-
-}
-
-.article-col {
-    display: flex;
-    flex-direction: column;
-    flex-basis: calc(50% - 20px);
-    padding: 10px;
-    gap: 100px;
-
-    justify-content: center;
-    align-items: center
-    ;
-}
-
-.games-img {
-    width: 450px;
-    height: 450px;
-    object-fit: cover;
-}
-
-.article {
-    width: 450px;
-    height: 450px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border-radius: 20px;
-}
-
-.article::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: var(--bg);
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.6s ease, filter 0.3s ease;
-    z-index: 0;
-}
-
-.article:hover::before {
-    transform: scale(1.1);
-    filter: brightness(70%);
-}
-
-.article-text {
-    text-align: center;
-    font-size: 60px;
-
-    text-shadow: 0px 0px 20px black;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    z-index: 1;
-}
-
-
-.article-text p {
-    font-weight: bold;
-    font-size: 50px;
-}
-
-.games-footer {
-    height: 200px;
-    text-align: center;
-}
-
-/* ====== BOOKS PAGE ====== */
-
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@100..900&display=swap');
-
-.books-page {
+.draw-page {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,11 +120,11 @@ body.books-page::before {
     background: linear-gradient(#ECEFFE, #CED6FB);
 }
 
-.books-page li {
+.draw-page li {
     list-style: none;
 }
 
-.books-content {
+.draw-content {
     width: 100%;
     height: 100%;
     display: flex;
@@ -293,21 +132,28 @@ body.books-page::before {
     margin-bottom: 10px;
 }
 
-.books-header {
+.draw-header {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 120px;
     margin-bottom: 10px;
+
+    background: rgba(63, 63, 63, 0.5);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    padding: 40px;
+
 }
 
-.books-header p {
+.draw-header p {
     font-weight: bold;
     font-size: 50px;
     text-shadow: 0px 0px 20px black;
 }
 
 .card-wrapper {
-    max-width: 1100px;
+    max-width: 1500px;
     margin: 0 60px 35px;
     padding: 20px 10px;
     overflow: hidden;
@@ -315,10 +161,9 @@ body.books-page::before {
 
 .card-list .card-item .card-link {
     user-select: none;
-    height: 700px;
     display: block;
     background: #fff;
-    padding: 18px;
+    padding: 5px;
     border-radius: 12px;
     text-decoration: none;
     border: 2px solid transparent;
@@ -333,7 +178,7 @@ body.books-page::before {
 
 .card-list .card-link .card-image {
     width: 100%;
-    aspect-ratio: 2/3;
+    aspect-ratio: 16/10;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -373,3 +218,25 @@ body.books-page::before {
     background:#5372F0;
 }
 
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  overflow: auto;
+}
+
+.modal-content {
+  display: block;
+  margin: 5% auto;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
