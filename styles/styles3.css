@@ -1,0 +1,415 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+.video-bg-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2; 
+}
+
+.video-bg-container video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; 
+  pointer-events: none; 
+  filter: brightness(70%); 
+  transition: opacity 0.6s ease;
+}
+
+.video-hidden {
+  opacity: 0;
+}
+
+
+.video-toggle {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.video-toggle:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0.85;
+}
+
+
+body.games-page::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url('../images/games-bg.jpeg');
+}
+
+body.books-page::before {
+    background-image:
+        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)),
+        url('../images/books-bg.jpg');
+}
+
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 50px;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    z-index: 10;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0; 
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: grey;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+/* ====== GAMES PAGE ====== */
+
+.games-container {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.games-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.games-header p {
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: overline;
+    text-shadow: 0px 0px 20px black;
+
+}
+
+.games-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.article-row {
+    display: flex;
+    align-items: center;
+
+    gap: 100px;
+
+}
+
+.article-col {
+    display: flex;
+    flex-direction: column;
+    flex-basis: calc(50% - 20px);
+    padding: 10px;
+    gap: 100px;
+
+    justify-content: center;
+    align-items: center
+    ;
+}
+
+.games-img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+}
+
+.article {
+    width: 450px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.article::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--bg);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.6s ease, filter 0.3s ease;
+    z-index: 0;
+}
+
+.article:hover::before {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+.article-text {
+    text-align: center;
+    font-size: 60px;
+
+    text-shadow: 0px 0px 20px black;
+    color: white;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+}
+
+
+.article-text p {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.games-footer {
+    height: 200px;
+    text-align: center;
+}
+
+
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0.85);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: relative;
+  background: #111;
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.modal iframe {
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+.info {
+  font-size: 18px;
+}
+
+
+/* ====== BOOKS PAGE ====== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@100..900&display=swap');
+
+.books-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#ECEFFE, #CED6FB);
+}
+
+.books-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.books-header {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+    margin-bottom: 10px;
+}
+
+.books-header p {
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 0px 0px 20px black;
+}
+
+.card-wrapper {
+    max-width: 1100px;
+    margin: 0 60px 35px;
+    padding: 20px 10px;
+    overflow: hidden;
+}
+
+.card-list .card-item .card-link {
+    user-select: none;
+    height: 700px;
+    display: block;
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:hover {
+    border-color:#5372F0;
+}
+
+
+.card-list .card-link .card-image {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-list .card-link .badge {
+    color: #5372F0;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 16px 0 18px;
+    background: #DDE4FF;
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.card-list .card-link .card-title {
+    font-size: 1.19rem;
+    color: #000;
+    font-weight: 600;
+}
+
+.card-list .card-link .card-button {
+    height: 35px;
+    width: 35px;
+    color: #5372F0;
+    border-radius: 50%;
+    margin: 30px 0 5px;
+    background: none;
+    cursor: pointer;
+    border: 2px solid #5372F0;
+    transform: rotate(-45deg);
+    transition: 0.4s ease;
+}
+
+.card-list .card-link:hover .card-button {
+    color: #fff;
+    background:#5372F0;
+}
+

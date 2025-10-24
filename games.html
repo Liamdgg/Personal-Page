@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles3.css">
+    <title>Games</title>
+    <link rel="stylesheet" href="styles/styles3.css">
 </head>
 <body class="games-page">
 
@@ -21,7 +21,7 @@
 
 <nav class="navbar">
   <button id="toggleVideo" class="video-toggle">Toggle Video</button>
-  <div class="nav-logo">MySite</div>
+  <div class="nav-logo">LiamDG</div>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About Me</a></li>
@@ -30,9 +30,9 @@
     <li class="dropdown">
       <a href="#" class="dropbtn">Hobbies ▼</a>
       <ul class="dropdown-content">
-        <a href="games.html">Video Games</a>
-        <a href="books.html">Books</a>
-        <a href="drawing.html">Drawing</a>
+        <li><a href="games.html">Video Games</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="drawing.html">Drawing</a></li>
       </ul>
     </li>
   </ul>
@@ -49,32 +49,32 @@
 
             <div class="article-col">
 
-                <div class="article" style="--bg: url('images/game1.jpg')">
+                <div class="article" style="--bg: url('../images/game1.jpg')">
                     <div class="article-text">
                         <p>Forza Horizon 4</p>
                     </div>
                 </div>
 
-                <div class="article" style="--bg: url('images/game2.jpeg')">
+                <div class="article" style="--bg: url('../../images/game2.jpeg')">
                     <div class="article-text">
                         <p>Metro Exodus</p>
                     </div>
                 </div>
 
                 
-                <div class="article" style="--bg: url('images/game3.jpg')">
+                <div class="article" style="--bg: url('../images/game3.jpg')">
                     <div class="article-text">
                         <p></p>
                     </div>
                 </div>
 
-                <div class="article" style="--bg: url('images/game4.jpg')">
+                <div class="article" style="--bg: url('../images/game4.jpg')">
                     <div class="article-text">
                         <p>Call of Duty Modern Warfare 2</p>
                     </div>
                 </div>
 
-                <div class="article" style="--bg: url('images/game5.jpg')">
+                <div class="article" style="--bg: url('../images/game5.jpg')">
                     <div class="article-text">
                         <p></p>
                     </div>
@@ -84,32 +84,32 @@
 
             <div class="article-col">
 
-                <div class="article" style="--bg: url('images/game6.jpg')">
+                <div class="article" style="--bg: url('../images/game6.jpg')">
                     <div class="article-text">
                         <p>Need For Speed</p>
                     </div>
                 </div>
 
-                <div class="article" style="--bg: url('images/game7.png')">
+                <div class="article" style="--bg: url('../images/game7.png')">
                     <div class="article-text">
                         <p></p>
                     </div>
                 </div>
 
                 
-                <div class="article" style="--bg: url('images/game8.jpg')">
+                <div class="article" style="--bg: url('../images/game8.jpg')">
                     <div class="article-text">
                         <p>Titanfall 2</p>
                     </div>
                 </div>
 
-                <div class="article" style="--bg: url('images/game9.jpg')">
+                <div class="article" style="--bg: url('../images/game9.jpg')">
                     <div class="article-text">
                         <p>Minecraft</p>
                     </div>
                 </div>
 
-                <div class="article" style="--bg: url('images/game10.jpg')">
+                <div class="article" style="--bg: url('../images/game10.jpg')">
                     <div class="article-text">
                         <p>Armored Core 6</p>
                     </div>
@@ -131,14 +131,22 @@
 <div id="gameModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <iframe id="gameTrailer" width="800" height="450" frameborder="0" allowfullscreen></iframe>
+    <iframe 
+      id="gameTrailer" 
+      width="800" 
+      height="450" 
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
     <div id="gameInfo" class="info"></div>
   </div>
 </div>
 
+
 </div>
 
-<script src="games-script.js"></script>
+<script src="javascript/games-script.js"></script>
     
 </body>
 </html>
