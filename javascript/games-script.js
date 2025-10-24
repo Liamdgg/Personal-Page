@@ -36,7 +36,7 @@ const gameVideos = {
 document.querySelectorAll('.article').forEach(article => {
   article.addEventListener('click', () => {
     const bg = article.style.getPropertyValue('--bg');
-    // Clean the url(...) syntax and extract just the filename
+
     const cleanBg = bg.replace(/url\(['"]?(?:\.\.\/)*images\/([^'")]+)['"]?\)/, '$1');
     const fileName = cleanBg.trim();
 
